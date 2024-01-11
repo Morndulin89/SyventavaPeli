@@ -1,0 +1,35 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Levels/Station.umap",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Levels/Station/Station.umap",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Levels/Station/Graphics/avaruusasema_hangaari.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Levels/Station/Graphics/Material_001.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Characters/PlayerCharacter/Graphics/hands.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Characters/PlayerCharacter/Graphics/hands_Anim_Armature_ANIM_Computer.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Characters/PlayerCharacter/Graphics/hands_Anim_Armature_ANIM_CrawlContin.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Characters/PlayerCharacter/Graphics/hands_Anim_Armature_ANIM_Idle.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Characters/PlayerCharacter/Graphics/hands_Anim_Armature_ANIM_PullLever.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Characters/PlayerCharacter/Graphics/hands_Anim_Armature_ANIM_Run.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Characters/PlayerCharacter/Graphics/hands_Skeleton.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Characters/PlayerCharacter/Graphics/M_Hand.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Characters/PlayerCharacter/Graphics/M_Nails.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Characters/PlayerCharacter/Graphics/M_Shirt.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Characters/PlayerCharacter/Graphics/M_Suit.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Characters/PlayerCharacter/Graphics/SKM_PC_hands.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Characters/PlayerCharacter/Graphics/SKM_PC.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Characters/PlayerCharacter/Graphics/ANIM_PC_Computer.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Characters/PlayerCharacter/Graphics/ANIM_PC_CrawlContin.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Characters/PlayerCharacter/Graphics/ANIM_PC_Idle.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Characters/PlayerCharacter/Graphics/ANIM_PC_PullLever.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Characters/PlayerCharacter/Graphics/ANIMPC__Run.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Characters/PlayerCharacter/Graphics/ANIM_PC_Run.uasset",
+				"C:/Users/Pulu/Documents/NANU/SpringGamestudies/Spring/Content/Characters/PlayerCharacter/Graphics/SK_PC.uasset"
+			]
+		}
+	]
+}
