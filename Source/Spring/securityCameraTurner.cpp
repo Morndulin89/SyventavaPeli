@@ -18,7 +18,7 @@ UsecurityCameraTurner::UsecurityCameraTurner()
 void UsecurityCameraTurner::BeginPlay()
 {
 	Super::BeginPlay();
-
+	UE_LOG(LogTemp, Warning, TEXT("Component is in use"))
 	// ...
 	
 }

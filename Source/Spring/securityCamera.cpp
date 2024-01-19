@@ -9,6 +9,15 @@ AsecurityCamera::AsecurityCamera()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	PrimaryActorTick.bCanEverTick = true;
+	lerpAlpha = 0.0f;
+	holdTime = 0.0f;
+	holdRemaining = 0.0f;
+	reverseDirection = false;
+	rotationSpeed = 1.0f;
+	reverseDirection = false;
+	isActive = false;
+
 }
 
 // Called when the game starts or when spawned
@@ -22,6 +31,14 @@ void AsecurityCamera::BeginPlay()
 void AsecurityCamera::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	lerpAlpha = FMath::Clamp(lerpAlpha, 0.0f, 1.0f); //laitetaan lerpAlpha välille 0-1
+
+	if (reverseDirection) lerpAlpha -= rotationSpeed * DeltaTime;
+	else                    lerpAlpha += rotationSpeed * DeltaTime; //kiertosuunta
+	FRotator newRot = FMath::Lerp(startPosition, endPosition, lerpAlpha); //lasketaan uusi rotaatio
+
+	SetActorRotation(newRot);
 
 }
 
