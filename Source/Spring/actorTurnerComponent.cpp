@@ -3,6 +3,7 @@
 
 #include "actorTurnerComponent.h"
 
+
 // Sets default values for this component's properties
 UactorTurnerComponent::UactorTurnerComponent()
 {
@@ -22,7 +23,7 @@ void UactorTurnerComponent::BeginPlay()
 	Super::BeginPlay();
 
 	// ...
-	
+
 }
 
 
@@ -35,4 +36,13 @@ void UactorTurnerComponent::TickComponent(float DeltaTime, ELevelTick TickType, 
 
 	// ...
 }
+
+
+void UactorTurnerComponent::TurnActor(FRotator startPosition, FRotator endPosition, bool isActive)
+{
+
+}
+
+
+
 

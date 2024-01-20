@@ -12,6 +12,7 @@ class SPRING_API UactorTurnerComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
+
 public:	
 	// Sets default values for this component's properties
 	UactorTurnerComponent();
@@ -23,6 +24,13 @@ protected:
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
+	
+	public: 
+	UFUNCTION(BlueprintCallable, Category = "Surveillance")
+	virtual void TurnActor(FRotator startPosition, FRotator endPosition, bool isActive);
+	
+
 
 		
 };
