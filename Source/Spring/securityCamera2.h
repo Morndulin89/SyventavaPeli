@@ -17,7 +17,23 @@ public:
 	AsecurityCamera2();
 
 
-	UactorTurnerComponent* turnerComponent; 
+	//set static mesh component to actor, for easier testing
+	UPROPERTY(EditAnywhere, BluePrintReadWrite)
+		UStaticMeshComponent* Mesh;
+
+
+
+/*
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
+		FRotator startPosition;		//kierrot (alkupiste)
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
+		FRotator endPosition;		//kierrot (p‰‰tepiste)
+*/
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
+		float rotateSpeed;			//kierron nopeus
+
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
+		float turnDegrees;		//kierron m‰‰r‰
 
 
 protected:
@@ -28,7 +44,19 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* DefaultMesh; 
+	//create variables for setting the movement
 
+	UPROPERTY(EditAnywhere, category = "ActorMovement")
+	float PitchValue;
+	UPROPERTY(EditAnywhere, category = "ActorMovement")
+	float YawValue;
+	UPROPERTY(EditAnywhere, category = "ActorMovement")
+	float RollValue;
+
+	float turnPitch;
+	float turnYaw;
+	float turnRoll;
+
+
+	void rotateActor(float DeltaTime);
 };

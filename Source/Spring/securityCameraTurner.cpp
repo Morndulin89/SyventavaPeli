@@ -29,6 +29,7 @@ void UsecurityCameraTurner::TickComponent(float DeltaTime, ELevelTick TickType, 
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
+	UE_LOG(LogTemp, Warning, TEXT("Component is ticking"))
 	// ...
 }
 

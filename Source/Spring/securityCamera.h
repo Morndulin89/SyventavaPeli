@@ -2,8 +2,11 @@
 
 #pragma once
 
+
+
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "actorTurnerComponent.h"
 #include "securityCamera.generated.h"
 
 UCLASS()
@@ -14,7 +17,7 @@ class SPRING_API AsecurityCamera : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AsecurityCamera();
-
+	/*
 	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
 	FRotator startPosition;
 	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
@@ -27,7 +30,11 @@ public:
 	float holdTime;
 	float holdRemaining;
 	bool  reverseDirection; 
-	bool isActive;
+	*/
+	//bool isActive;
+
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
+	UactorTurnerComponent* actorComponent;
 
 protected:
 	// Called when the game starts or when spawned

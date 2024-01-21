@@ -7,32 +7,45 @@
 AsecurityCamera::AsecurityCamera()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	
 	PrimaryActorTick.bCanEverTick = true;
+	/*
 	lerpAlpha = 0.0f;
 	holdTime = 0.0f;
 	holdRemaining = 0.0f;
 	reverseDirection = false;
 	rotationSpeed = 1.0f;
-	reverseDirection = false;
-	isActive = true;
-
+	*/
+	
+	//isActive = true;
+	
+	actorComponent = CreateDefaultSubobject<UactorTurnerComponent>(TEXT("turnerActorComponent"));
+	
 }
 
 // Called when the game starts or when spawned
 void AsecurityCamera::BeginPlay()
 {
 	Super::BeginPlay();
+	
 }
 
 // Called every frame
 void AsecurityCamera::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	turnOperation(DeltaTime);
+
+
+		
+		SetActorRotation(actorComponent->TurnActor(DeltaTime));
+		//turnOperation(DeltaTime);
+	
+
 }
 
 void AsecurityCamera::turnOperation(float DeltaTime)
 {
+/*
 	//if lerpAlpha (turning degree is under 1 and holdRemaining (delta time Passed) is below or 0.0)
 	if (lerpAlpha > 1.0f && holdRemaining <= 0.0f)
 	{
@@ -58,5 +71,7 @@ void AsecurityCamera::turnOperation(float DeltaTime)
 
 		SetActorRotation(newRot);
 	}
+
+*/
 }
 

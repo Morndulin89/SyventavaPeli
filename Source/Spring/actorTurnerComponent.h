@@ -12,6 +12,25 @@ class SPRING_API UactorTurnerComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
+public: 
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
+	FRotator startPosition;
+
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
+	FRotator endPosition; //kierrot (alku- ja p‰‰tepiste)
+
+	float lerpAlpha;
+
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
+	float rotationSpeed; //kiertonopeus
+	float holdTime;
+	float holdRemaining;
+	bool  reverseDirection;
+	bool isActive;
+
+
+
+
 
 public:	
 	// Sets default values for this component's properties
@@ -26,11 +45,8 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	
-	public: 
+public: 
 	UFUNCTION(BlueprintCallable, Category = "Surveillance")
-	virtual void TurnActor(FRotator startPosition, FRotator endPosition, bool isActive);
-	
-
-
+	FRotator TurnActor(float DeltaTime);
 		
 };
