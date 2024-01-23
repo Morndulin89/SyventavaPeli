@@ -45,6 +45,9 @@ void AsecurityCamera::Tick(float DeltaTime)
 
 void AsecurityCamera::turnOperation(float DeltaTime)
 {
+	
+
+
 /*
 	//if lerpAlpha (turning degree is under 1 and holdRemaining (delta time Passed) is below or 0.0)
 	if (lerpAlpha > 1.0f && holdRemaining <= 0.0f)

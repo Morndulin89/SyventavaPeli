@@ -3,9 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
+//add timeline component to the file
+#include "Components/TimelineComponent.h"
 #include "GameFramework/Actor.h"
 #include "actorTurnerComponent.h"
 #include "securityCamera2.generated.h"
+
+class UCurveFloat;
 
 UCLASS()
 class SPRING_API AsecurityCamera2 : public AActor
@@ -16,47 +20,35 @@ public:
 	// Sets default values for this actor's properties
 	AsecurityCamera2();
 
-
-	//set static mesh component to actor, for easier testing
-	UPROPERTY(EditAnywhere, BluePrintReadWrite)
-		UStaticMeshComponent* Mesh;
-
-
-
-/*
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
-		FRotator startPosition;		//kierrot (alkupiste)
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
-		FRotator endPosition;		//kierrot (p‰‰tepiste)
-*/
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
-		float rotateSpeed;			//kierron nopeus
+	UFUNCTION()
+	void TimelineProgress(float value);
 
 	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
-		float turnDegrees;		//kierron m‰‰r‰
+	bool isActive;
+
+
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
+	FRotator startPosition;
+
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
+	FRotator endPosition; //kierrot (alku- ja p‰‰tepiste)
+
+
+	UPROPERTY(EditAnywhere, Category = "Surveillance")
+	UCurveFloat* CurveFloat;
+
+	FTimeline CurveTimeline;
 
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+
+
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	//create variables for setting the movement
-
-	UPROPERTY(EditAnywhere, category = "ActorMovement")
-	float PitchValue;
-	UPROPERTY(EditAnywhere, category = "ActorMovement")
-	float YawValue;
-	UPROPERTY(EditAnywhere, category = "ActorMovement")
-	float RollValue;
-
-	float turnPitch;
-	float turnYaw;
-	float turnRoll;
-
-
-	void rotateActor(float DeltaTime);
 };
