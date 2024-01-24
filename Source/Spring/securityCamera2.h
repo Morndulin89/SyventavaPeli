@@ -20,8 +20,11 @@ public:
 	// Sets default values for this actor's properties
 	AsecurityCamera2();
 
-	UFUNCTION()
+	/*
+		UFUNCTION()
 	void TimelineProgress(float value);
+	
+
 
 	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
 	bool isActive;
@@ -38,6 +41,14 @@ public:
 	UCurveFloat* CurveFloat;
 
 	FTimeline CurveTimeline;
+	*/
+
+
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
+	UactorTurnerComponent* actorComponent;
+
+
+
 
 
 protected:

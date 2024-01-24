@@ -17,21 +17,6 @@ class SPRING_API AsecurityCamera : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AsecurityCamera();
-	/*
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
-	FRotator startPosition;
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
-	FRotator endPosition; //kierrot (alku- ja p‰‰tepiste)
-
-	float lerpAlpha;
-
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
-	float rotationSpeed; //kiertonopeus
-	float holdTime;
-	float holdRemaining;
-	bool  reverseDirection; 
-	*/
-	//bool isActive;
 
 	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
 	UactorTurnerComponent* actorComponent;

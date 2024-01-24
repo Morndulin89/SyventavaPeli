@@ -16,10 +16,8 @@ UactorTurnerComponent::UactorTurnerComponent()
 	holdRemaining = 0.0f;
 	reverseDirection = false;
 	rotationSpeed = 1.0f;
-	isActive = true;
-	
+	isActivated = true;
 
-	// ...
 }
 
 
@@ -28,8 +26,15 @@ void UactorTurnerComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
-	UE_LOG(LogTemp, Warning, TEXT("ActorComponent on olemassa"));
+	if (CurveFloat)
+	{
+		FOnTimelineFloat TimelineProgress;
+		TimelineProgress.BindUFunction(this, FName("TimelineProgress"));
+		CurveTimeline.AddInterpFloat(CurveFloat, TimelineProgress);
+		CurveTimeline.SetLooping(true);
+
+		CurveTimeline.PlayFromStart();
+	}
 
 }
 
@@ -39,14 +44,30 @@ void UactorTurnerComponent::TickComponent(float DeltaTime, ELevelTick TickType, 
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	AActor* owner = GetOwner();
+	
+	//if (isActivated) 
+	//{
+		CurveTimeline.TickTimeline(DeltaTime); //tämä ei jostain syystä toimi ollenkaan?
+	//}
 
-	UE_LOG(LogTemp, Display, TEXT(""));
-
-	// ...
 }
 
 
+void UactorTurnerComponent::TimelineProgress(float Value)
+{
+	FRotator newRotation = FMath::Lerp(startPosition, endPosition, Value);
+	AActor* owner = GetOwner();
+	if (owner != nullptr)
+	{
+		owner->SetActorRotation(newRotation);
+	}
+	
+}
+
+
+
+
+//tämä on liitetty siihen tuntiesimerkkikameraan, älä poista vielä!!!!
 FRotator UactorTurnerComponent::TurnActor(float DeltaTime)
 {
 	FRotator newRot = (startPosition);
@@ -75,8 +96,6 @@ FRotator UactorTurnerComponent::TurnActor(float DeltaTime)
 		
 		newRot = FMath::Lerp(startPosition, endPosition, lerpAlpha);
 
-		
-		//owner.SetActorRotation(newRot);
 	}
 	return newRot;
 }

@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Components/TimelineComponent.h"
 #include "Components/ActorComponent.h"
 #include "actorTurnerComponent.generated.h"
 
@@ -23,12 +24,22 @@ public:
 
 	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
 	float rotationSpeed; //kiertonopeus
+	
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
+	bool isActivated;
+	
 	float holdTime;
 	float holdRemaining;
 	bool  reverseDirection;
-	bool isActive;
+	
 
+	UFUNCTION()
+	void TimelineProgress(float Value);
 
+	UPROPERTY(EditAnywhere, Category = "Surveillance")
+	UCurveFloat* CurveFloat;
+
+	FTimeline CurveTimeline;
 
 
 

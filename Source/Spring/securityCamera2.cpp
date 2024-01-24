@@ -2,6 +2,7 @@
 
 
 #include "securityCamera2.h"
+#include "actorTurnerComponent.h"
 #include "Components/TimelineComponent.h"
 
 // Sets default values
@@ -10,6 +11,10 @@ AsecurityCamera2::AsecurityCamera2()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	//isActive = true; 
+
+	actorComponent = CreateDefaultSubobject<UactorTurnerComponent>(TEXT("turnerActorComponent"));
+
 }
 
 // Called when the game starts or when spawned
@@ -17,7 +22,10 @@ void AsecurityCamera2::BeginPlay()
 {
 	Super::BeginPlay();
 
-	if (CurveFloat)
+	/*
+	* t‰‰ll‰ t‰m‰ toimii ihan oikein
+	* 
+		if (CurveFloat)
 	{
 		FOnTimelineFloat TimelineProgress;
 		TimelineProgress.BindUFunction(this, FName("TimelineProgress"));
@@ -26,23 +34,36 @@ void AsecurityCamera2::BeginPlay()
 
 		CurveTimeline.PlayFromStart();
 	}
-
-
-	
+	*/
 }
 
 // Called every frame
 void AsecurityCamera2::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-
-	CurveTimeline.TickTimeline(DeltaTime);
-
+	
+	/*
+	* t‰m‰kin toimii oikein
+	* 
+		if(isActive)
+	{
+		CurveTimeline.TickTimeline(DeltaTime);
+	}
 }
+	
+	*/
 
-void AsecurityCamera2::TimelineProgress(float Value)
+	/*
+	* t‰m‰ toimii
+	* 
+	void AsecurityCamera2::TimelineProgress(float Value)
 {
 	FRotator newRotation = FMath::Lerp(startPosition, endPosition, Value);
 	SetActorRotation(newRotation);
+	*/
 }
+	
+	
+	
+
+
