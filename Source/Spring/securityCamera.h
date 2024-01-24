@@ -6,20 +6,20 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "actorTurnerComponent.h"
-#include "securityCamera.generated.h"
+#include "ActorTurnerComponent.h"
+#include "SecurityCamera.generated.h"
 
 UCLASS()
-class SPRING_API AsecurityCamera : public AActor
+class SPRING_API ASecurityCamera : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	AsecurityCamera();
+	ASecurityCamera();
 
 	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
-	UactorTurnerComponent* actorComponent;
+	UActorTurnerComponent* actorComponent;
 
 protected:
 	// Called when the game starts or when spawned

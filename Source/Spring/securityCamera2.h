@@ -6,19 +6,19 @@
 //add timeline component to the file
 #include "Components/TimelineComponent.h"
 #include "GameFramework/Actor.h"
-#include "actorTurnerComponent.h"
-#include "securityCamera2.generated.h"
+#include "ActorTurnerComponent.h"
+#include "SecurityCamera2.generated.h"
 
 class UCurveFloat;
 
 UCLASS()
-class SPRING_API AsecurityCamera2 : public AActor
+class SPRING_API ASecurityCamera2 : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	AsecurityCamera2();
+	ASecurityCamera2();
 
 	/*
 		UFUNCTION()
@@ -45,7 +45,7 @@ public:
 
 
 	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Surveillance")
-	UactorTurnerComponent* actorComponent;
+	UActorTurnerComponent* actorComponent;
 
 
 

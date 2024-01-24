@@ -1,10 +1,10 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "securityCamera.h"
+#include "SecurityCamera.h"
 
 // Sets default values
-AsecurityCamera::AsecurityCamera()
+ASecurityCamera::ASecurityCamera()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	
@@ -19,19 +19,19 @@ AsecurityCamera::AsecurityCamera()
 	
 	//isActive = true;
 	
-	actorComponent = CreateDefaultSubobject<UactorTurnerComponent>(TEXT("turnerActorComponent"));
+	actorComponent = CreateDefaultSubobject<UActorTurnerComponent>(TEXT("turnerActorComponent"));
 	
 }
 
 // Called when the game starts or when spawned
-void AsecurityCamera::BeginPlay()
+void ASecurityCamera::BeginPlay()
 {
 	Super::BeginPlay();
 	
 }
 
 // Called every frame
-void AsecurityCamera::Tick(float DeltaTime)
+void ASecurityCamera::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
@@ -43,7 +43,7 @@ void AsecurityCamera::Tick(float DeltaTime)
 
 }
 
-void AsecurityCamera::turnOperation(float DeltaTime)
+void ASecurityCamera::turnOperation(float DeltaTime)
 {
 	
 

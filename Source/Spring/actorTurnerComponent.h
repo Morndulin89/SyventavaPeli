@@ -5,11 +5,11 @@
 #include "CoreMinimal.h"
 #include "Components/TimelineComponent.h"
 #include "Components/ActorComponent.h"
-#include "actorTurnerComponent.generated.h"
+#include "ActorTurnerComponent.generated.h"
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class SPRING_API UactorTurnerComponent : public UActorComponent
+class SPRING_API UActorTurnerComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
@@ -45,7 +45,7 @@ public:
 
 public:	
 	// Sets default values for this component's properties
-	UactorTurnerComponent();
+	UActorTurnerComponent();
 
 protected:
 	// Called when the game starts

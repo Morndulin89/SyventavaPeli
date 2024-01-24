@@ -1,11 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "actorTurnerComponent.h"
+#include "ActorTurnerComponent.h"
 
 
 // Sets default values for this component's properties
-UactorTurnerComponent::UactorTurnerComponent()
+UActorTurnerComponent::UActorTurnerComponent()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
@@ -22,7 +22,7 @@ UactorTurnerComponent::UactorTurnerComponent()
 
 
 // Called when the game starts
-void UactorTurnerComponent::BeginPlay()
+void UActorTurnerComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
@@ -40,20 +40,20 @@ void UactorTurnerComponent::BeginPlay()
 
 
 // Called every frame
-void UactorTurnerComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+void UActorTurnerComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	
-	//if (isActivated) 
-	//{
+	if (isActivated) 
+	{
 		CurveTimeline.TickTimeline(DeltaTime); //tämä ei jostain syystä toimi ollenkaan?
-	//}
+	}
 
 }
 
 
-void UactorTurnerComponent::TimelineProgress(float Value)
+void UActorTurnerComponent::TimelineProgress(float Value)
 {
 	FRotator newRotation = FMath::Lerp(startPosition, endPosition, Value);
 	AActor* owner = GetOwner();
@@ -68,7 +68,7 @@ void UactorTurnerComponent::TimelineProgress(float Value)
 
 
 //tämä on liitetty siihen tuntiesimerkkikameraan, älä poista vielä!!!!
-FRotator UactorTurnerComponent::TurnActor(float DeltaTime)
+FRotator UActorTurnerComponent::TurnActor(float DeltaTime)
 {
 	FRotator newRot = (startPosition);
 	

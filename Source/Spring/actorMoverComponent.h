@@ -4,17 +4,17 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "actorMoverComponent.generated.h"
+#include "ActorMoverComponent.generated.h"
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class SPRING_API UactorMoverComponent : public UActorComponent
+class SPRING_API UActorMoverComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
 public:	
 	// Sets default values for this component's properties
-	UactorMoverComponent();
+	UActorMoverComponent();
 
 protected:
 	// Called when the game starts
