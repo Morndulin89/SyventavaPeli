@@ -47,7 +47,7 @@ void UActorTurnerComponent::TickComponent(float DeltaTime, ELevelTick TickType, 
 	
 	if (isActivated) 
 	{
-		CurveTimeline.TickTimeline(DeltaTime); //tämä ei jostain syystä toimi ollenkaan?
+		CurveTimeline.TickTimeline(DeltaTime);
 	}
 
 }
