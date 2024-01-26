@@ -6,6 +6,9 @@
 #include "GameFramework/Pawn.h"
 #include "Switchable.generated.h"
 
+//luodaan uusi delegaatti, t‰m‰nkaltainen voi ottaa max kahdeksan muuttujaa
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnStateChangedEvent, bool, NewState);
+
 UCLASS()
 class SPRING_API ASwitchable : public APawn
 {
@@ -42,6 +45,13 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Switchable")
 	void Toggle();
+
+
+	UFUNCTION(BlueprintNativeEvent, category = "Switchable")
+	void OnStateChanged(bool newState);
+
+	UPROPERTY(BlueprintAssignable, category = "Switchable") //assignable eli blueprintiss‰ voidaan liitt‰‰ asioita
+	FOnStateChangedEvent StateChanged;
 
 protected: 
 	void ToggleImp(TSet< ASwitchable* >& handled);

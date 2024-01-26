@@ -57,9 +57,29 @@ void ASwitchable::ToggleImp(TSet< ASwitchable* > &handled)
 	if (wasAlreadyAdded == false)
 	{
 		state =! state;
+		OnStateChanged(state);
+		StateChanged.Broadcast(state);
 		for(auto switchable : affectedSwitchables)
 		{
-			switchable->ToggleImp(handled);
+			if (switchable)
+			{
+				switchable->ToggleImp(handled);
+			}
+			else
+			{
+				//errorhandling with a log-text
+				UE_LOG(LogTemp, Warning, TEXT("Affected switchable was NULL in '%s', please update or remove switchable"), *GetName());
+			}
+			
 		}
+
 	}
+}
+
+/*
+Implementation-sana mahdollistaa blueprinteissä ylikirjoittamisen!
+*/
+void ASwitchable::OnStateChanged_Implementation(bool newState)
+{
+	//oletustoteutus tarvittaessa
 }
