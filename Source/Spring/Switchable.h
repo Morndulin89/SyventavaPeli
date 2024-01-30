@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Pawn.h"
+#include "GameFramework/Actor.h"
 #include "Switchable.generated.h"
 
 //luodaan uusi delegaatti, tämänkaltainen voi ottaa max kahdeksan muuttujaa
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnStateChangedEvent, bool, NewState);
 
 UCLASS()
-class SPRING_API ASwitchable : public APawn
+class SPRING_API ASwitchable : public AActor
 {
 	GENERATED_BODY()
 
@@ -34,9 +34,6 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 	UFUNCTION(BlueprintCallable, Category = "Switchable")
 	void Enable();
 
@@ -55,5 +52,9 @@ public:
 
 protected: 
 	void ToggleImp(TSet< ASwitchable* >& handled);
+	void EnableImp(TSet< ASwitchable* >& handled);
+	void DisableImp(TSet< ASwitchable* >& handled);
+
+
 
 };

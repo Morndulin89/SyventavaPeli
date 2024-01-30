@@ -25,22 +25,17 @@ void ASwitchable::Tick(float DeltaTime)
 
 }
 
-// Called to bind functionality to input
-void ASwitchable::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-}
-
 void ASwitchable::Enable()
 {
-
+	TSet<ASwitchable*> handled;
+	EnableImp(handled);
 }
 
 
 void ASwitchable::Disable()
 {
-
+	TSet<ASwitchable*> handled;
+	DisableImp(handled);
 }
 
 
@@ -48,6 +43,68 @@ void ASwitchable::Toggle()
 {
 	TSet<ASwitchable*> handled;
 	ToggleImp(handled);
+}
+
+
+void ASwitchable::EnableImp(TSet< ASwitchable* >& handled)
+{
+	bool wasAlreadyAdded;
+	handled.Add(this, &wasAlreadyAdded);
+	if (wasAlreadyAdded == false)
+
+		if (state == false)
+		{
+			state = true;
+			OnStateChanged(state);
+			StateChanged.Broadcast(state);
+		}
+	{
+		
+		for (auto switchable : affectedSwitchables)
+		{
+			if (switchable)
+			{
+				switchable->EnableImp(handled);
+			}
+			else
+			{
+				//errorhandling with a log-text
+				UE_LOG(LogTemp, Warning, TEXT("Affected switchable was NULL in '%s', please update or remove switchable"), *GetName());
+			}
+
+		}
+
+	}
+}
+
+void ASwitchable::DisableImp(TSet< ASwitchable* >& handled)
+{
+	bool wasAlreadyAdded;
+	handled.Add(this, &wasAlreadyAdded);
+	if (wasAlreadyAdded == false)
+	{
+		if (state == true)
+		{
+			state = false;
+			OnStateChanged(state);
+			StateChanged.Broadcast(state);
+		}
+		
+		for (auto switchable : affectedSwitchables)
+		{
+			if (switchable)
+			{
+				switchable->DisableImp(handled);
+			}
+			else
+			{
+				//errorhandling with a log-text
+				UE_LOG(LogTemp, Warning, TEXT("Affected switchable was NULL in '%s', please update or remove switchable"), *GetName());
+			}
+
+		}
+
+	}
 }
 
 void ASwitchable::ToggleImp(TSet< ASwitchable* > &handled)
@@ -76,10 +133,12 @@ void ASwitchable::ToggleImp(TSet< ASwitchable* > &handled)
 	}
 }
 
+
 /*
 Implementation-sana mahdollistaa blueprinteissä ylikirjoittamisen!
 */
 void ASwitchable::OnStateChanged_Implementation(bool newState)
 {
 	//oletustoteutus tarvittaessa
+
 }

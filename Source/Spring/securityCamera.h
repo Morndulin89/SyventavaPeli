@@ -7,10 +7,11 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "ActorTurnerComponent.h"
+#include "Switchable.h"
 #include "SecurityCamera.generated.h"
 
 UCLASS()
-class SPRING_API ASecurityCamera : public AActor
+class SPRING_API ASecurityCamera : public ASwitchable
 {
 	GENERATED_BODY()
 	
