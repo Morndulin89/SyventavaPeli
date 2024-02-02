@@ -7,12 +7,13 @@
 #include "Components/TimelineComponent.h"
 #include "GameFramework/Actor.h"
 #include "ActorTurnerComponent.h"
+#include "Switchable.h"
 #include "SecurityCamera2.generated.h"
 
 class UCurveFloat;
 
 UCLASS()
-class SPRING_API ASecurityCamera2 : public AActor
+class SPRING_API ASecurityCamera2 : public ASwitchable
 {
 	GENERATED_BODY()
 	
