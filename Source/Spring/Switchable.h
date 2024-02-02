@@ -26,7 +26,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(/*EditAnywhere, */BluePrintReadOnly, Category = "Switchable")
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Switchable")
 	bool state;
 
 
