@@ -122,7 +122,10 @@ void ASwitchable::ToggleImp(TSet< ASwitchable* > &handled)
 		{
 			if (switchable)
 			{
+
 				switchable->ToggleImp(handled);
+				UE_LOG(LogTemp, Display, TEXT("Switchable %s was activated"), *GetName());
+				
 			}
 			else
 			{
@@ -133,6 +136,7 @@ void ASwitchable::ToggleImp(TSet< ASwitchable* > &handled)
 		}
 
 	}
+	
 }
 
 
