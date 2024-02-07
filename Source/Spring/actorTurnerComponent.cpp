@@ -56,10 +56,15 @@ void UActorTurnerComponent::TickComponent(float DeltaTime, ELevelTick TickType, 
 void UActorTurnerComponent::TimelineProgress(float Value)
 {
 	FRotator newRotation = FMath::Lerp(startPosition, endPosition, Value);
+
 	AActor* owner = GetOwner();
 	if (owner != nullptr)
 	{
 		owner->SetActorRotation(newRotation);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("The component owner %s not valid!"), *owner->GetName());
 	}
 	
 }
