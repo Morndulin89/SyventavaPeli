@@ -1,25 +1,23 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// copyright seppo.nevalainen@karelia.fi 2022
 
 #pragma once
 
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-
-
+#include "DialogLoader.generated.h"
 
 /**
- * 
+ * Tämän saa lisättyä suoraan Unrealin puolelta, piti vaan valita C++ luokaksi suoraan tuo "BlueprintFunctionLibrary", ei empty
  */
-class SPRING_API DialogLoader
+UCLASS()
+class SPRING_API UDialogLoader : public UBlueprintFunctionLibrary
 {
-public:
-	DialogLoader();
-	~DialogLoader();
+	GENERATED_BODY()
 
-	UFUNCTION(BlueprintCallable, Category = "custom")
+public: 
+	UFUNCTION(BlueprintCallable, Category = "Dialog")
 	static bool FileSaveString(FString SaveTextB, FString FileNameB);
 
-	UFUNCTION(BlueprintCallable, Category = "custom")
+	UFUNCTION(BlueprintCallable, Category = "Dialog")
 	static bool FileLoadString(FString FileNameA, FString& SaveTextA);
-
 };

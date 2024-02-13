@@ -2,21 +2,14 @@
 
 
 #include "DialogLoader.h"
+#include "Misc/Paths.h"
 
-DialogLoader::DialogLoader()
+bool UDialogLoader::FileSaveString(FString SaveTextB, FString FileNameB)
 {
+	return FFileHelper::SaveStringToFile(SaveTextB, *(FPaths::ProjectDir() + FileNameB));
 }
 
-DialogLoader::~DialogLoader()
+bool UDialogLoader::FileLoadString(FString FileNameA, FString& SaveTextA)
 {
-}
-
-bool DialogLoader::FileSaveString(FString SaveTextB, FString FileNameB)
-{
-    return FFileHelper::SaveStringToFile(SaveTextB, *(FPaths::ProjectDir() + FileNameB));
-}
-
-bool DialogLoader::FileLoadString(FString FileNameA, FString& SaveTextA)
-{
-    return FFileHelper::LoadFileToString(SaveTextA, *(FPaths::ProjectDir() + FileNameA));
+	return FFileHelper::LoadFileToString(SaveTextA, *(FPaths::ProjectDir() + FileNameA));
 }
