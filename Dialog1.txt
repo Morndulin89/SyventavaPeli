@@ -17,4 +17,3 @@
 17;Some vandals wrote evil words onto me, would you fix it? If you do, I'll help you escape.;AI_PHRASE;N/A;17;
 18;I'll help. Just a sec.;PC_GOAL;ESCAPE;0;
 19;No, the name is really describing, haha...;PC_ATTITUDE;HOSTILE;0;
-20;I have no time, sorry;PC_ATTITUDE;NEUTRAL;0;

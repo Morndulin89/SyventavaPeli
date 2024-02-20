@@ -1,0 +1,8 @@
+1;Go away, you piece of rotten flesh!;AI_PHRASE;N/A;1;
+2;I apologize, I'm having a bad day;PC_ATTITUDE;FRIENDLY;5;
+3;Gee, you really took it personally....?;PC_ATTITUDE;NEUTRAL;5;
+4;Want directions to the nearest scrapyard?!;PC_ATTITUDE;HOSTILE;5;
+5;We are done talking, you'll never hear another word from me!;AI_PHRASE;N/A;1;
+6;That is sad to hear...;PC_ATTITUDE;FRIENDLY;0;
+7;Have a nice rest of your robot days!;PC_ATTITUDE;NEUTRAL;0;
+8;FINE! Rust in peace!;PC_ATTITUDE;HOSTILE;0;
