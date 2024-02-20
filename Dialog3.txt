@@ -1,4 +1,4 @@
 1;Hi again, Mister! Nice of you to drop by!;AI_PHRASE;N/A;1;
 2;My pleasure, mister robot. Just checking on you;PC_ATTITUDE;FRIENDLY;0;
-3;Just passing through...;PC_ATTITUDE;NEUTRAL;5;
-4;Just here to throw away some trash, you talking bin!!;PC_ATTITUDE;HOSTILE;5;
+3;Just passing through...;PC_ATTITUDE;NEUTRAL;0;
+4;Just here to throw away some trash, you talking bin!!;PC_ATTITUDE;HOSTILE;0;
