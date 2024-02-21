@@ -1,5 +1,5 @@
-1;Go away, you piece of rotten flesh!;AI_PHRASE;N/A;1;
-2;I apologize, I'm having a bad day;PC_ATTITUDE;FRIENDLY;5;
+1;Go away, you piece of rotting flesh!;AI_PHRASE;N/A;1;
+2;I apologize for my earlier behaviour, I'm having a bad day...;PC_ATTITUDE;FRIENDLY;5;
 3;Gee, you really took it personally....?;PC_ATTITUDE;NEUTRAL;5;
 4;Want directions to the nearest scrapyard?!;PC_ATTITUDE;HOSTILE;5;
 5;We are done talking, you'll never hear another word from me!;AI_PHRASE;N/A;1;
