@@ -23,8 +23,15 @@ public:
 	UPROPERTY()
 	TArray<AAsteroid*> asteroids;				
 
+	/*
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AsteroidField")
-	TSubclassOf<AAsteroid> tyyppi; 
+	TArray<TSubclassOf<AAsteroid>> types; 
+	*/
+	
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AsteroidField")
+	TSubclassOf<AAsteroid> type;
+
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AsteroidField")
 	FVector minVelocity; 
@@ -32,9 +39,13 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AsteroidField")
 	FVector maxVelocity;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AsteroidField")
+	float noSpawnZoneRadius;
 
 	// Sets default values for this actor's properties
 	AAsteroidField();
+
+	int currentAmountOfAsteroids = 0; 
 
 protected:
 	// Called when the game starts or when spawned
@@ -46,6 +57,7 @@ public:
 	
 	UFUNCTION()
 	void DestroyAsteroid(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+	void CreateAsteroids();
 
 
 };

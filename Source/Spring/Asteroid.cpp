@@ -14,8 +14,23 @@ AAsteroid::AAsteroid()
 	Mesh->SetEnableGravity(false);
 	Mesh->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	Mesh->SetGenerateOverlapEvents(true);
+	Mesh->SetCollisionResponseToChannel(ECollisionChannel::ECC_GameTraceChannel2, ECollisionResponse::ECR_Block);
 	
 	//asteroidin lataaminen kuten robotissa, jos haluaa
+
+	PrimaryActorTick.bCanEverTick = true;
+
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> asteroidMesh(TEXT("StaticMesh'/Game/Levels/Space/Graphics/Asteroids/asteroidi.asteroidi'"));
+
+	if (asteroidMesh.Object)
+	{
+		TArray<UStaticMeshComponent*> staticMeshes;
+		GetComponents(staticMeshes, false);
+		if (staticMeshes.Num() > 0)
+		{
+			staticMeshes[0]->SetStaticMesh(asteroidMesh.Object);
+		}
+	}
 
 }
 
@@ -32,4 +47,6 @@ void AAsteroid::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
+
+
 
