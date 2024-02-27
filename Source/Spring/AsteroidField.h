@@ -23,14 +23,16 @@ public:
 	UPROPERTY()
 	TArray<AAsteroid*> asteroids;				
 
-	/*
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AsteroidField")
-	TArray<TSubclassOf<AAsteroid>> types; 
-	*/
-	
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AsteroidField")
+	TArray<TSubclassOf<AAsteroid>> types; 
+
+	
+	/*
+		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AsteroidField")
 	TSubclassOf<AAsteroid> type;
+	*/
+
 
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AsteroidField")

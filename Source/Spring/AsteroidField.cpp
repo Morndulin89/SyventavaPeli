@@ -18,6 +18,9 @@ void AAsteroidField::BeginPlay()
 	Super::BeginPlay();
 
 	triggerBox->OnComponentEndOverlap.AddDynamic(this, &AAsteroidField::DestroyAsteroid);
+
+	//create the base asteroids in the field
+
 	CreateAsteroids();
 
 	
@@ -29,31 +32,18 @@ void AAsteroidField::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (currentAmountOfAsteroids < maxAsteroidsInField)
-	{
-
-	}
-
-}
-
-void AAsteroidField::DestroyAsteroid(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-{
-	//check we destroy only asteroids on the endOverlap
-	if (OtherActor->Tags.Contains(FName("asteroid"))) 
-	{
-		asteroids.Remove(Cast<AAsteroid>(OtherActor));
-		OtherActor->Destroy();
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("not asteroid overlapped"));
-	}
 	
+	CreateAsteroids();
+	
+
+
 }
 
+//function that creates asteroids
 void AAsteroidField::CreateAsteroids()
 {
-	for (int i = 0; i < maxAsteroidsInField; i++)
+	int NumAsteroids = asteroids.Num();
+	for (int i = NumAsteroids; i < maxAsteroidsInField; i++)
 	{
 		FVector boxExtents = triggerBox->GetScaledBoxExtent() * 0.5;
 		FVector spawnLocation = this->GetActorLocation() +
@@ -74,11 +64,12 @@ void AAsteroidField::CreateAsteroids()
 
 		FRotator spawnRotation = FRotator::ZeroRotator;
 
+		//get random number from the Array, where all the types of asteroids are
+		int randomAsteroidIndex = FMath::RandRange(0, types.Num() - 1);
+		//create one of the asteroid types
+		AAsteroid* newAsteroid = GetWorld()->SpawnActor<AAsteroid>(types[randomAsteroidIndex], spawnLocation, spawnRotation);
 
-		//int randomAsteroidIndex = FMath::RandRange(0, types.Num() - 1);
-		//AAsteroid* newAsteroid = GetWorld()->SpawnActor<AAsteroid>(types[randomAsteroidIndex], spawnLocation, spawnRotation);
-
-		AAsteroid* newAsteroid = GetWorld()->SpawnActor<AAsteroid>(type, spawnLocation, spawnRotation);
+		//AAsteroid* newAsteroid = GetWorld()->SpawnActor<AAsteroid>(type, spawnLocation, spawnRotation);
 
 		UPrimitiveComponent* pc = newAsteroid->FindComponentByClass<UPrimitiveComponent>();
 		newAsteroid->Tags.Add(FName("asteroid"));
@@ -95,3 +86,22 @@ void AAsteroidField::CreateAsteroids()
 		currentAmountOfAsteroids++;
 	}
 }
+
+void AAsteroidField::DestroyAsteroid(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	//check we destroy only asteroids on the endOverlap
+	if (OtherActor->Tags.Contains(FName("asteroid")))
+	{
+		asteroids.Remove(Cast<AAsteroid>(OtherActor));
+		OtherActor->Destroy();
+		currentAmountOfAsteroids--;
+
+		UE_LOG(LogTemp, Warning, TEXT("amount of asteroids: %d"), currentAmountOfAsteroids);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("not asteroid overlapped"));
+	}
+
+}
+
