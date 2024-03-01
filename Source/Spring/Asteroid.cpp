@@ -17,7 +17,7 @@ AAsteroid::AAsteroid()
 	Mesh->SetCollisionResponseToChannel(ECollisionChannel::ECC_GameTraceChannel2, ECollisionResponse::ECR_Block);
 
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> asteroidMesh(TEXT("StaticMesh'/Game/Levels/Space/Graphics/Asteroids/asteroidi.asteroidi'"));
-
+	
 	if (asteroidMesh.Object)
 	{
 		TArray<UStaticMeshComponent*> staticMeshes;
@@ -34,6 +34,7 @@ AAsteroid::AAsteroid()
 void AAsteroid::BeginPlay()
 {
 	Super::BeginPlay();
+
 	
 }
 

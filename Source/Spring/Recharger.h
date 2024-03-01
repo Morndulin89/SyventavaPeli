@@ -8,6 +8,8 @@
 #include "Recharger.generated.h"
 
 /**
+ * UStaticMeshComponent doesn't aucomatically include tick-component, so 
+ * there has to be a constructor URecharger() and TickComponent and BeginPlay must be overridden
  * 
  */
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))

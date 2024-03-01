@@ -6,19 +6,22 @@
 
 URecharger::URecharger()
 {
+//Add can tick	
 	PrimaryComponentTick.bCanEverTick = true;
 }
 
 void URecharger::BeginPlay()
 {
+	//bring Super::BeginPlay to be able to enable tickcomponent
 	Super::BeginPlay();
 }
 
 void URecharger::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
+	//get tick from Super
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	GEngine->AddOnScreenDebugMessage(-1, 5.0, FColor::Red, FString::Printf(TEXT("Recharger is ticking")));
+	//if TargetSource is set, recharge it in the rechargerate on every tick
 	if (TargetSource)
 	{
 		TargetSource->AddCharge(DeltaTime * RechargeRate);
