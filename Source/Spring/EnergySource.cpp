@@ -14,6 +14,7 @@ float UEnergySource::GetCharge() const
 	return Energy;
 }
 
+//if there is energy in the source, move some amount of energy
 float UEnergySource::RequestCharge(float value)
 {
 	if (Energy > value)
@@ -23,6 +24,11 @@ float UEnergySource::RequestCharge(float value)
 	}
 	else
 	{
-		return value; 
+		float empty = Energy; 
+		Energy = 0.0f; 
+		GEngine->AddOnScreenDebugMessage(-1, 5.0, FColor::Red, FString::Printf(TEXT("EnergySource empty")));
+		return empty;
+
+
 	}
 }

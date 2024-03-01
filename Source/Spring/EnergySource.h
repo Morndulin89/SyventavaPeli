@@ -14,10 +14,20 @@ class SPRING_API UEnergySource : public UStaticMeshComponent
 {
 	GENERATED_BODY()
 
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EnergySource")
 	float MaxEnergy; 
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EnergySource")
 	float Energy; 
+
+	UFUNCTION(BlueprintCallable)
 	void AddCharge(float charge);
+
+	UFUNCTION(BlueprintCallable)
 	float GetCharge() const;
+
+	UFUNCTION(BlueprintCallable)
 	float RequestCharge(float value);
 	
 };

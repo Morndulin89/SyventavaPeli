@@ -15,8 +15,26 @@ class SPRING_API UEnergyConsumer : public UStaticMeshComponent
 {
 	GENERATED_BODY()
 
+public: 
+	UEnergyConsumer();
+
+	//the energy source
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EnergyConsumer")
 	UEnergySource* TargetSource;
 
+	//how much energy is spent in a burst
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EnergyConsumer")
+	float BurstCunsumptionRate;
+
+	//how much energy is consumed constantly (for example engine etc)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EnergyConsumer")
+	float ConstantConsumptionRatePerSecond;
+	
+	//use burst
+	UFUNCTION(BlueprintCallable, Category = "Weapon")
+	bool ConsumeBurst();
+
+	//get tick-function
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	
 };

@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Components/StaticMeshComponent.h"
 #include "EnergyConsumer.h"
+#include "AsteroidField.h"
 #include "Weapon.generated.h"
 
 /**
@@ -16,6 +17,7 @@ class SPRING_API UWeapon : public UEnergyConsumer
 	GENERATED_BODY()
 
 public: 
+
 	UFUNCTION(BlueprintCallable, Category="Weapon")
 	void Shoot(); 
 

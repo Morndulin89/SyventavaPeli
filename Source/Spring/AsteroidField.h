@@ -47,8 +47,6 @@ public:
 	// Sets default values for this actor's properties
 	AAsteroidField();
 
-	int currentAmountOfAsteroids = 0; 
-
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -59,6 +57,7 @@ public:
 	
 	UFUNCTION()
 	void DestroyAsteroid(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+	UFUNCTION()
 	void CreateAsteroids();
 
 

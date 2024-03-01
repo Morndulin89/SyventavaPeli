@@ -17,13 +17,11 @@ void AAsteroidField::BeginPlay()
 {
 	Super::BeginPlay();
 
+	//when Triggerbox is activated by an astroid, call destroyAsteroid-function
 	triggerBox->OnComponentEndOverlap.AddDynamic(this, &AAsteroidField::DestroyAsteroid);
 
 	//create the base asteroids in the field
-
 	CreateAsteroids();
-
-	
 	
 }
 
@@ -32,7 +30,7 @@ void AAsteroidField::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	
+	//call CreateAsteroids-function in every tick
 	CreateAsteroids();
 	
 
@@ -42,16 +40,25 @@ void AAsteroidField::Tick(float DeltaTime)
 //function that creates asteroids
 void AAsteroidField::CreateAsteroids()
 {
+	this->Tags.Add(FName("AsteroidField"));
+	//get the current amount of astroids and set it in a variable
 	int NumAsteroids = asteroids.Num();
+	
+	//if there are less asteroids than wented, create more
 	for (int i = NumAsteroids; i < maxAsteroidsInField; i++)
 	{
+		//get the center of the triggerbox
 		FVector boxExtents = triggerBox->GetScaledBoxExtent() * 0.5;
+
+		//set the spawn location for the asteroids
 		FVector spawnLocation = this->GetActorLocation() +
+			//get a random point within the triggerbox
 			FVector(FMath::RandRange(-boxExtents.X, boxExtents.X),
 				FMath::RandRange(-boxExtents.Y, boxExtents.Y),
 				FMath::RandRange(-boxExtents.Z, boxExtents.Z));
 
-		if (GetParentActor())
+		//if spawn location is too close to the ship, set it further away
+		if (GetParentActor()) //check if has parent actor (like the ship in this case)
 		{
 			if ((spawnLocation - GetActorLocation()).Length() < noSpawnZoneRadius)
 			{
@@ -71,8 +78,9 @@ void AAsteroidField::CreateAsteroids()
 
 		//AAsteroid* newAsteroid = GetWorld()->SpawnActor<AAsteroid>(type, spawnLocation, spawnRotation);
 
+		//add a tag to the asteroid (to enable the tracing)
 		UPrimitiveComponent* pc = newAsteroid->FindComponentByClass<UPrimitiveComponent>();
-		newAsteroid->Tags.Add(FName("asteroid"));
+		newAsteroid->Tags.Add(FName("Asteroid"));
 
 		//random velocity to asteroid 
 		FVector velocity = FVector(FMath::RandRange(-minVelocity.X, maxVelocity.X),
@@ -82,8 +90,9 @@ void AAsteroidField::CreateAsteroids()
 
 		pc->SetPhysicsLinearVelocity(velocity, true, NAME_None);					//laitetaan asteroidit liikkeelle
 
+		//add the newly created asteroid to an array
 		asteroids.Add(newAsteroid);
-		currentAmountOfAsteroids++;
+
 	}
 }
 
@@ -92,11 +101,11 @@ void AAsteroidField::DestroyAsteroid(UPrimitiveComponent* OverlappedComponent, A
 	//check we destroy only asteroids on the endOverlap
 	if (OtherActor->Tags.Contains(FName("asteroid")))
 	{
+
+		//remove the asteroid from the array and destroy it
 		asteroids.Remove(Cast<AAsteroid>(OtherActor));
 		OtherActor->Destroy();
-		currentAmountOfAsteroids--;
 
-		UE_LOG(LogTemp, Warning, TEXT("amount of asteroids: %d"), currentAmountOfAsteroids);
 	}
 	else
 	{

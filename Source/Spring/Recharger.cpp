@@ -3,11 +3,25 @@
 
 #include "Recharger.h"
 
-float URecharger::RechargeRate()
+
+URecharger::URecharger()
 {
-	return 0.0f;
+	PrimaryComponentTick.bCanEverTick = true;
+}
+
+void URecharger::BeginPlay()
+{
+	Super::BeginPlay();
 }
 
 void URecharger::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
+	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+
+	GEngine->AddOnScreenDebugMessage(-1, 5.0, FColor::Red, FString::Printf(TEXT("Recharger is ticking")));
+	if (TargetSource)
+	{
+		TargetSource->AddCharge(DeltaTime * RechargeRate);
+	}
+
 }

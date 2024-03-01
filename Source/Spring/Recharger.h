@@ -16,9 +16,17 @@ class SPRING_API URecharger : public UStaticMeshComponent
 	GENERATED_BODY()
 
 public: 
-	UFUNCTION(BlueprintCallable, Category = "Recharger")
-	float RechargeRate();
+	URecharger();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EnergyConsumer")
+	UEnergySource* TargetSource;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EnergyConsumer")
+	float RechargeRate;
 
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
+protected:
+	virtual void BeginPlay() override;
 	
 };

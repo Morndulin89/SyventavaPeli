@@ -15,10 +15,6 @@ AAsteroid::AAsteroid()
 	Mesh->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	Mesh->SetGenerateOverlapEvents(true);
 	Mesh->SetCollisionResponseToChannel(ECollisionChannel::ECC_GameTraceChannel2, ECollisionResponse::ECR_Block);
-	
-	//asteroidin lataaminen kuten robotissa, jos haluaa
-
-	PrimaryActorTick.bCanEverTick = true;
 
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> asteroidMesh(TEXT("StaticMesh'/Game/Levels/Space/Graphics/Asteroids/asteroidi.asteroidi'"));
 
