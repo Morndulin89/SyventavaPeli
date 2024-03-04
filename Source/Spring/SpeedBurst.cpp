@@ -3,6 +3,7 @@
 
 #include "SpeedBurst.h"
 
+/*
 void USpeedBurst::SpeedBurst(float speedMultiplier)
 {
 	if (ConsumeBurst)
@@ -11,11 +12,14 @@ void USpeedBurst::SpeedBurst(float speedMultiplier)
 		{
 			APawn* OwningPawn = Cast<APawn>(GetOwner());
 			UPawnMovementComponent* movementComponent = OwningPawn->GetMovementComponent();
-			
-			
+
+
 		}
 
 
 	}
 
 }
+
+*/
+

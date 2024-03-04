@@ -28,14 +28,15 @@ void UWeapon::Shoot()
 			if (hitActor->ActorHasTag("Asteroid"))
 			{
 				hitActor->Destroy();
+				/*
+				* get the actor from the astroidField - actor and remove it from the array there and then destroy it
+				* In my opinion this should work, but it only crashes Unreal Engine
+				* 
+				field->DestroyAsteroid(hitActor);
+				
+				*/
 			}
-			/*
-						if (this->GetOwner())
-			{
-				TArray<AActor> children; 
-				for() = this->GetOwner()->GetAllChildActors();
-			}
-			*/
+	
 		}
 		else
 		{

@@ -18,7 +18,7 @@ void AAsteroidField::BeginPlay()
 	Super::BeginPlay();
 
 	//when Triggerbox is activated by an astroid, call destroyAsteroid-function
-	triggerBox->OnComponentEndOverlap.AddDynamic(this, &AAsteroidField::DestroyAsteroid);
+	triggerBox->OnComponentEndOverlap.AddDynamic(this, &AAsteroidField::DestroyOverlappedAsteroid);
 
 	//create the base asteroids in the field
 	CreateAsteroids();
@@ -96,7 +96,13 @@ void AAsteroidField::CreateAsteroids()
 	}
 }
 
-void AAsteroidField::DestroyAsteroid(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+void AAsteroidField::DestroyAsteroid(AActor* OtherActor)
+{
+	asteroids.Remove(Cast<AAsteroid>(OtherActor));
+	OtherActor->Destroy();
+}
+
+void AAsteroidField::DestroyOverlappedAsteroid(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
 	//check we destroy only asteroids on the endOverlap
 	if (OtherActor->Tags.Contains(FName("asteroid")))

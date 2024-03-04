@@ -14,11 +14,15 @@ UCLASS()
 class SPRING_API USpeedBurst : public UEnergyConsumer
 {
 	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Engine")
+	/*
+		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Engine")
 	float SpeedMultiplier; 
 
 	UFUNCTION(BlueprintCallable, Category = "Engine")
 	void SpeedBurst(float SpeedMultiplier);
+	
+	*/
+
+
 	
 };

@@ -18,6 +18,8 @@ class SPRING_API UWeapon : public UEnergyConsumer
 
 public: 
 
+	AAsteroidField* field; 
+
 	UFUNCTION(BlueprintCallable, Category="Weapon")
 	void Shoot(); 
 
