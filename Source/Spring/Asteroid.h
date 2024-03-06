@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "Asteroid.generated.h"
 
+class UEscapeInSpaceGameInstance;
+
 UCLASS()
 class SPRING_API AAsteroid : public AActor
 {
@@ -26,5 +28,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	virtual void Save(UEscapeInSpaceGameInstance& saveHandler); 
 
 };

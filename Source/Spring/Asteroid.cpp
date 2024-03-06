@@ -2,6 +2,7 @@
 
 
 #include "Asteroid.h"
+#include "EscapeInSpaceGameInstance.h"
 
 // Sets default values
 AAsteroid::AAsteroid()
@@ -43,6 +44,12 @@ void AAsteroid::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+}
+
+void AAsteroid::Save(UEscapeInSpaceGameInstance& saveHandler)
+{
+
+	saveHandler.Save(*this);
 }
 
 
