@@ -23,9 +23,10 @@ class SPRING_API UEscapeInSpaceGameInstance : public UGameInstance
 public: 
 
 	UAsteroidFieldSaveGame* SaveGameInstance; 
-	UFUNCTION(BlueprintCallable)
+	
+	UFUNCTION(BlueprintCallable, Category = "EscapeInSpace")
 	void Save();
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, Category="EscapeInSpace")
 	void Load();
 
 	void Save(AAsteroid& asteroid);

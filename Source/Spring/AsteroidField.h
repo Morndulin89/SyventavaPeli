@@ -63,5 +63,9 @@ public:
 	UFUNCTION()
 	void DestroyAsteroid(AActor* OtherActor);
 
+	void CreateAsteroid(UClass *Class, const FVector& location, const FRotator& rotation, const FVector& velocity, const FVector& angularVelocity);
+	
+	void DestroyAllAsteroids();
+
 
 };

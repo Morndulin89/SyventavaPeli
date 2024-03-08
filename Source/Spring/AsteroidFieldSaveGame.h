@@ -17,6 +17,7 @@ struct FAsteroidStruct
 {
 	GENERATED_BODY()
 	
+	UPROPERTY()
 	FTransform transform;
 
 	UPROPERTY()
@@ -32,6 +33,8 @@ class SPRING_API UAsteroidFieldSaveGame : public USaveGame
 {
 	GENERATED_BODY()
 
-	TArray<FAsteroidStruct> astroids; 
+public: 
+	UPROPERTY()
+	TArray<FAsteroidStruct> asteroids; 
 	
 };
