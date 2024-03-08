@@ -3,6 +3,8 @@
 
 #include "Asteroid.h"
 #include "EscapeInSpaceGameInstance.h"
+#include "PhysicsEngine/PhysicsConstraintComponent.h"
+
 
 // Sets default values
 AAsteroid::AAsteroid()
@@ -28,7 +30,6 @@ AAsteroid::AAsteroid()
 			staticMeshes[0]->SetStaticMesh(asteroidMesh.Object);
 		}
 	}
-
 }
 
 // Called when the game starts or when spawned
@@ -50,6 +51,14 @@ void AAsteroid::Save(UEscapeInSpaceGameInstance& saveHandler)
 {
 
 	saveHandler.Save(*this);
+}
+
+FVector AAsteroid::getAngularVelocity()
+{
+	USceneComponent* rootComp = GetRootComponent();
+	UPrimitiveComponent* primRoot = Cast<UPrimitiveComponent>(rootComp);
+	FVector angularVelocity = primRoot->GetPhysicsAngularVelocityInDegrees();
+	return angularVelocity;
 }
 
 

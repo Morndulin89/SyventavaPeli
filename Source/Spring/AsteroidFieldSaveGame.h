@@ -9,7 +9,7 @@
 enum EAsteroidType
 {
 	RegularAsteroid,
-	BigAsteroid
+	BigAsteroid,
 };
 
 USTRUCT(BlueprintType)
@@ -22,6 +22,10 @@ struct FAsteroidStruct
 
 	UPROPERTY()
 	int32 type; 
+	UPROPERTY()
+	FVector angularVelocity; 
+	UPROPERTY()
+	FVector velocity; 
 };
 
 

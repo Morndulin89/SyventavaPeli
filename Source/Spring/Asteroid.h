@@ -21,6 +21,8 @@ public:
 	UStaticMeshComponent* Mesh; 
 
 
+
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -30,5 +32,8 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	virtual void Save(UEscapeInSpaceGameInstance& saveHandler); 
+
+	//gets asteroids angular velocity = kulmanopeus
+	FVector getAngularVelocity();
 
 };

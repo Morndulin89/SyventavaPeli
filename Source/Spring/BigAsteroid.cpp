@@ -2,8 +2,10 @@
 
 
 #include "BigAsteroid.h"
+#include "EscapeInSpaceGameInstance.h"
 
 ABigAsteroid::ABigAsteroid()
 {
 	this->SetActorScale3D(FVector(2.0,2.0,2.0));
 }
+

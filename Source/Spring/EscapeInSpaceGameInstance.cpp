@@ -4,6 +4,7 @@
 #include "EscapeInSpaceGameInstance.h"
 #include "AsteroidField.h"
 #include "Kismet/GameplayStatics.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 
 void UEscapeInSpaceGameInstance::Save()
@@ -64,14 +65,17 @@ void UEscapeInSpaceGameInstance::Load()
 				case EAsteroidType::RegularAsteroid:
 				Class = AAsteroid::StaticClass();
 				break;
+				case EAsteroidType::BigAsteroid:
+					Class = ABigAsteroid::StaticClass();
 				}
+
 					if (Class == nullptr)
 					{
 				UE_LOG(LogTemp, Error, TEXT("Could not create asteroid - invalid type"));
 					}
 					else 
 					{
-						field->CreateAsteroid(Class, as.transform.GetLocation(), as.transform.Rotator(), FVector::ZeroVector, FVector::ZeroVector);
+						field->CreateAsteroid(Class, as.transform.GetLocation(), as.transform.Rotator(),as.velocity, as.angularVelocity);
 					}
 			}
 		}
@@ -86,6 +90,19 @@ void UEscapeInSpaceGameInstance::Save(AAsteroid& asteroid)
 {
 	FAsteroidStruct as;
 	as.transform = asteroid.GetActorTransform();
-	as.type = EAsteroidType::RegularAsteroid;
+	as.angularVelocity = asteroid.getAngularVelocity();
+	as.velocity = asteroid.GetVelocity();
+
+	//check which tag asteroid has and assign the type based on that
+
+	if (asteroid.ActorHasTag(FName("RegularAsteroid")))
+	{
+		as.type = EAsteroidType::RegularAsteroid;
+	}
+	else if (asteroid.ActorHasTag(FName("BigAsteroid")))
+	{
+		as.type = EAsteroidType::BigAsteroid;
+	}
+	
 	SaveGameInstance->asteroids.Add(as);
 }

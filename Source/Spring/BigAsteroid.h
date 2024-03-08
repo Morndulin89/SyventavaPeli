@@ -15,4 +15,5 @@ class SPRING_API ABigAsteroid : public AAsteroid
 	GENERATED_BODY()
 public: 
 	ABigAsteroid();
+
 };

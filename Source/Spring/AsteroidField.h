@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Asteroid.h"
+#include "BigAsteroid.h"
 #include "Components/BoxComponent.h"
 #include "AsteroidField.generated.h"
 

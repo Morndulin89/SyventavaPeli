@@ -107,6 +107,17 @@ void AAsteroidField::CreateAsteroid(UClass* Class, const FVector& location, cons
 	UPrimitiveComponent* pc = newAsteroid->FindComponentByClass<UPrimitiveComponent>();
 	newAsteroid->Tags.Add(FName("Asteroid"));
 
+	//check what type of asteroid was created and add tag based on that
+	if (newAsteroid->IsA(AAsteroid::StaticClass()))
+	{
+		newAsteroid->Tags.Add(FName("RegularAsteroid"));
+	}
+	else 
+	{
+		newAsteroid->Tags.Add(FName("BigAsteroid"));
+	}
+
+	
 
 	//laitetaan asteroidit liikkeelle
 	pc->SetPhysicsLinearVelocity(velocity, true, NAME_None);					

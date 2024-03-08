@@ -6,6 +6,7 @@
 #include "Engine/GameInstance.h"
 #include "AsteroidFieldSaveGame.h"
 #include "Asteroid.h"
+#include "BigAsteroid.h"
 #include "EscapeInSpaceGameInstance.generated.h"
 
 /**
