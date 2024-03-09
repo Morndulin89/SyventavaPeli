@@ -28,6 +28,15 @@ struct FAsteroidStruct
 	FVector velocity; 
 };
 
+USTRUCT(BlueprintType)
+struct FPlayerStruct
+{
+	GENERATED_BODY()
+
+	UPROPERTY()
+	FTransform playerTransform; 
+};
+
 
 /**
  * 

@@ -31,4 +31,6 @@ public:
 	void Load();
 
 	void Save(AAsteroid& asteroid);
+
+	APawn player; 
 };
