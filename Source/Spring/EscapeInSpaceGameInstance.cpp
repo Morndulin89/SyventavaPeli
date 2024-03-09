@@ -23,18 +23,6 @@ void UEscapeInSpaceGameInstance::Save()
 				asteroid->Save(*this);
 			}
 		}
-		/*
-		Tähän tarvii jonkun hienon funktiojutun ihan varmasti, aloita tästä!
-		Selvitä voiko player olla BP ja silti castaus toimii tms
-		
-		
-		
-		
-		*/
-
-		//tähän pelaajan lokaation tallennus
-		APawn* playerPawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
-		FTransform playerTransform = playerPawn->GetTransform();
 
 		if (UGameplayStatics::SaveGameToSlot(SaveGameInstance, DEFAULT_SAVE_SLOT_NAME, DEFAULT_SAVE_USER_INDEX))
 		{
